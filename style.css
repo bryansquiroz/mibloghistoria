@@ -108,3 +108,29 @@
     display: block;
   }
 
+.capitulo {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
+  background-color: #fff; /* ajusta según tu paleta */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.capitulo h2 {
+  font-size: 1.8rem;
+  color: #333; /* asegúrate que combine */
+  margin-bottom: 1rem;
+}
+
+.capitulo p {
+  line-height: 1.6;
+  color: #555;
+  word-wrap: break-word;
+}
+
+.capitulo p br + br {
+  margin-top: 1rem;
+  content: "";
+  display: block;
+}
