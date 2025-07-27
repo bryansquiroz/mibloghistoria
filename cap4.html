@@ -113,6 +113,24 @@ yo nunca fui otra cosa que tu papá. <br>
   <footer style="text-align: center; padding: 20px;">
     <p>&copy; 2025 - Mi blog personal</p>
   </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const destacados = document.querySelectorAll('.destacado');
+    destacados.forEach((elemento) => {
+      elemento.style.color = '#d62828'; // color rojo fuerte
+      elemento.style.fontWeight = 'bold';
+      elemento.style.transition = 'background-color 0.3s ease';
+
+      elemento.addEventListener('mouseenter', () => {
+        elemento.style.backgroundColor = '#ffe5e5'; // color rosado suave al pasar el mouse
+      });
+
+      elemento.addEventListener('mouseleave', () => {
+        elemento.style.backgroundColor = 'transparent';
+      });
+    });
+  });
+</script>
 
 </body>
 </html>

@@ -51,11 +51,12 @@
       </p>
 
       <p>
-        Eras tan tierna, tan parte de mí…  <br>
-        Cada minuto que pasaba te sentía más dentro de mi corazón,  <br>
-        como si el amor fuera un puñal que no <strong><a href="duele.html" class="destacado" >duele</a></strong>,  <br>
-        sino que marca algo que no se borra jamás.<br>
-      </p>
+  Eras tan tierna, tan parte de mí…  <br>
+  Cada minuto que pasaba te sentía más dentro de mi corazón,<br>
+  como si el amor fuera un puñal que no <a href="duele.html" class="destacado" style="white-space: nowrap;">duele</a>, <br>
+  sino que marca algo que no se borra jamás.<br>
+</p>
+
 
       <p>
         Eras y eres mi hija.  <br>
@@ -80,6 +81,30 @@
   <footer style="text-align: center; padding: 20px;">
     <p>&copy; 2025 - Mi blog personal</p>
   </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const destacados = document.querySelectorAll('.destacado');
+    destacados.forEach((elemento) => {
+      elemento.style.color = '#c1121f'; // rojo más intenso
+      elemento.style.fontWeight = 'bold';
+      elemento.style.padding = '2px 6px';
+      elemento.style.borderRadius = '5px';
+      elemento.style.cursor = 'pointer';
+      elemento.style.transition = 'background-color 0.3s ease, box-shadow 0.3s ease';
+
+      elemento.addEventListener('mouseenter', () => {
+        elemento.style.backgroundColor = '#ffd6d6'; // fondo rosa más fuerte
+        elemento.style.boxShadow = '0 0 10px rgba(193,18,31,0.5)';
+      });
+
+      elemento.addEventListener('mouseleave', () => {
+        elemento.style.backgroundColor = 'transparent';
+        elemento.style.boxShadow = 'none';
+      });
+    });
+  });
+</script>
+
 
 </body>
 </html>

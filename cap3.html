@@ -19,7 +19,7 @@
       <p>
         Fueron tres meses. Tres malditos meses sin verte, sin saber nada de ti, sin escuchar tu voz ni ver tu carita.  <br>
         Todo fue caos, conflicto, distancia, dolor...  <br>
-        Me vi viviendo en un hotel — el mismo donde trabajaba — después de que la relación con tu madre se <strong> <a href="conflicto1.html" class="destacado">rompiera</a></strong>.  <br>
+        Me vi viviendo en un hotel — el mismo donde trabajaba — después de que la relación con tu madre se <a href="conflicto1.html" class="destacado">rompiera</a>.  <br>
         Era insostenible. Así que volví a mi ciudad, a solo 30 minutos de ti. Pero sentí que estaba a años luz de tu mundo.
       </p>
 
@@ -80,6 +80,31 @@
   <footer style="text-align: center; padding: 20px;">
     <p>&copy; 2025 - Mi blog personal</p>
   </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const destacados = document.querySelectorAll('.destacado');
+    destacados.forEach((elemento) => {
+      elemento.style.color = '#c1121f'; // rojo más intenso
+      elemento.style.fontWeight = 'bold';
+      elemento.style.padding = '2px 6px';
+      elemento.style.borderRadius = '5px';
+      elemento.style.cursor = 'pointer';
+      elemento.style.transition = 'background-color 0.3s ease, box-shadow 0.3s ease';
+
+      elemento.addEventListener('mouseenter', () => {
+        elemento.style.backgroundColor = '#ffd6d6'; // fondo rosa más fuerte
+        elemento.style.boxShadow = '0 0 10px rgba(193,18,31,0.5)';
+      });
+
+      elemento.addEventListener('mouseleave', () => {
+        elemento.style.backgroundColor = 'transparent';
+        elemento.style.boxShadow = 'none';
+      });
+    });
+  });
+</script>
+
+
 
 </body>
 </html>
