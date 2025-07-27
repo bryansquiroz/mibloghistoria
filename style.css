@@ -143,10 +143,11 @@ body {
 
 /* Estilos para pantallas de hasta 768px (tablets y móviles) */
 @media (max-width: 768px) {
-  body {
-    font-size: 16px;
-    margin: 15px;
-  }
+ body {
+  padding: 0 15px;
+  font-size: 16px;
+}
+
 
   .contenedor {
     flex-direction: column;
@@ -180,3 +181,46 @@ video {
     flex-direction: column;
   }
 }
+
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .contenedor {
+    padding: 10px;
+  }
+}
+
+.dropdown-menu ul {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+p + p {
+  margin-top: 1rem;
+}
+
+.destacado {
+  font-weight: bold;
+  color: #ce0000;
+  display: block;
+  margin: 1rem 0;
+}
+
