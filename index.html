@@ -3,106 +3,277 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Blog Personal</title>
+  <title>Mi Camino y el de Mi Hija</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* === ESTILO GLOBAL === */
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background-color: #f6f1e7;
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      color: #3a2e2a;
+      line-height: 1.8;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2 {
+      font-family: "Playfair Display", serif;
+      color: #2b1c18;
+    }
+
+    a {
+      color: #5e4637;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #2b1c18;
+    }
+
+    /* === MENÚ === */
+    nav {
+      background: #3a2e2a;
+      color: #f4e9dc;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    nav h2 {
+      font-size: 1.1rem;
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .dropdown-menu button {
+      background: none;
+      border: none;
+      color: #f4e9dc;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .dropdown-menu button:hover {
+      opacity: 0.8;
+    }
+
+    ul#menu-list {
+      list-style: none;
+      background-color: #4b3a33;
+      margin: 0;
+      padding: 0.5rem 0;
+      position: absolute;
+      right: 1rem;
+      top: 60px;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    ul#menu-list.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    ul#menu-list li {
+      padding: 0.5rem 1.2rem;
+    }
+
+    ul#menu-list li a {
+      color: #f4e9dc;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    ul#menu-list li a:hover {
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+    }
+
+    /* === ENCABEZADO === */
+    header {
+      text-align: center;
+      padding: 4rem 1.5rem 2rem;
+      background: linear-gradient(180deg, #f1e6d2 0%, #f7f3ea 100%);
+      border-bottom: 2px solid #d3c2a3;
+      box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05);
+    }
+
+    header h1 {
+      font-size: 2.7rem;
+      margin-bottom: 0.5rem;
+      color: #2b1c18;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #5a4639;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* === CONTENIDO === */
+    main {
+      max-width: 850px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+    }
+
+    section.capitulo {
+      background: rgba(255,255,255,0.85);
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      border: 1px solid rgba(185,164,138,0.5);
+      animation: fadeIn 0.8s ease;
+      backdrop-filter: blur(1px);
+    }
+
+    section.capitulo p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+      color: #3f2f2b;
+    }
+
+    section.capitulo strong {
+      color: #2b1c18;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background: #3a2e2a;
+      color: #f4e9dc;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background 0.3s ease, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      background: #241c1a;
+      transform: translateY(-2px);
+    }
+
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #6e584c;
+      border-top: 1px solid #d3c2a3;
+      margin-top: 4rem;
+    }
+
+    /* === ANIMACIONES === */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.1rem;
+      }
+      section.capitulo {
+        padding: 1.6rem;
+      }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<nav class="dropdown-menu">
-  <button onclick="toggleMenu()">Capítulos ▼</button>
-  <ul id="menu-list" class="hidden">
-    <li><a href="cap1.html">Capítulo 1</a></li>
-    <li><a href="cap2.html">Capítulo 2</a></li>
-    <li><a href="cap3.html">Capítulo 3</a></li>
-    <li><a href="cap4.html">Capítulo 4</a></li>
-    <li><a href="cap5.html">Capítulo 5</a></li>
-    <li><a href="cap6.html">Capítulo 6</a></li>
-     <li><a href="cap7.html">Capítulo 7</a></li>
-     <li><a href="cap8.html">Capítulo 8</a></li>
-     <li><a href="cap9.html">Capítulo 9</a></li>
-     <li><a href="cap10.html">Capítulo 10</a></li>
-  </ul>
-</nav>
+  <nav class="dropdown-menu">
+    <h2>📜 Mi Diario</h2>
+    <button onclick="toggleMenu()">Capítulos ▼</button>
+    <ul id="menu-list">
+      <li><a href="cap1.html">Capítulo 1</a></li>
+      <li><a href="cap2.html">Capítulo 2</a></li>
+      <li><a href="cap3.html">Capítulo 3</a></li>
+      <li><a href="cap4.html">Capítulo 4</a></li>
+      <li><a href="cap5.html">Capítulo 5</a></li>
+      <li><a href="cap6.html">Capítulo 6</a></li>
+      <li><a href="cap7.html">Capítulo 7</a></li>
+      <li><a href="cap8.html">Capítulo 8</a></li>
+      <li><a href="cap9.html">Capítulo 9</a></li>
+      <li><a href="cap10.html">Capítulo 10</a></li>
+    </ul>
+  </nav>
 
   <header>
- <h1>Mi Camino y el de Mi Hija</h1>
-<p>Un blog personal sobre nuestro viaje, nuestras huellas y nuestro amor.</p>
-</header>
+    <h1>Mi Camino y el de Mi Hija</h1>
+    <p>Un diario sobre nuestro viaje, nuestras huellas y el amor que el tiempo no pudo borrar.</p>
+   <img src="fotos/imagenpadreconsuniña.jpg" alt="Camino que representa la historia de un padre e hija" class="intro-img">  
+   </header>
 
-<main>
-  
+  <main>
+    <section class="capitulo">
+      <p>Este es un espacio donde comparto mi historia como padre, mis aprendizajes, y el camino que he recorrido —y sigo recorriendo— para estar más cerca de mi hija.</p>
 
-  <section class="capitulo">
-    <p>Este es un espacio donde comparto mi historia como padre,
-       mis aprendizajes, y el camino que he recorrido —y sigo recorriendo—
-       para estar más cerca de mi hija.</p>
+      <h2>Nuestra Historia</h2>
 
-    <header>
-      <h1>Nuestra Historia</h1>
-    </header>
+      <article>
+        <p>Este blog es mi forma de dejar un rastro de lo vivido. De todo lo que sentí y viví desde el momento en que supe que iba a ser padre.</p>
 
-    <article>
-      <p>Este blog es mi forma de dejar un rastro de lo vivido.
-         De todo lo que sentí y viví desde el momento en que supe que iba a ser padre.</p>
+        <p>Es mi manera de no olvidar, pero también de que un día mi hija pueda leer esto y conocer nuestra versión más real y humana. No la que otros contaron, sino la que viví desde mi corazón.</p>
 
-      <p>Es mi manera de no olvidar, pero también de que un día mi hija
-         pueda leer esto y conocer nuestra versión más real y humana.
-         No la que otros contaron, sino la que viví desde mi corazón.</p>
+        <strong>¿Por qué ahora?</strong><br><br>
 
-      <strong>¿Por qué ahora?</strong><br><br>
+        <p>Porque han pasado años. Porque la vida me dio momentos hermosos y también otros que me rompieron y me obligaron a empezar de nuevo.</p>
 
-      <p>Porque han pasado años.</p>
-      <p>Porque la vida me dio momentos hermosos
-         y también otros que me rompieron y me obligaron a empezar de nuevo.</p>
-      <p>Porque siento que si no escribo ahora,
-         los detalles se irán apagando,
-         y hay cosas que merecen ser contadas con verdad.</p>
+        <p>Porque siento que si no escribo ahora, los detalles se irán apagando, y hay cosas que merecen ser contadas con verdad.</p>
 
-      <br>
+        <p>Hoy no compartimos el día a día como antes. No sé qué música te gusta ahora, qué te hace reír, ni si cuando miras al cielo piensas en alguien.</p>
 
-      <p>Hoy no compartimos el día a día como antes.</p>
-      <p>No sé qué música te gusta ahora,
-         qué te hace reír,
-         ni si cuando miras al cielo piensas en alguien.</p>
+        <p>Eso duele más de lo que podría poner en palabras.</p>
 
-      <p>Eso duele más de lo que podría poner en palabras.</p>
+        <p>Tengo tanto que contarte… tanto que enseñarte todavía… tanto que quiero vivir contigo.</p>
 
-      <br>
+        <p>Aun con la distancia, aun sin tenerte cerca, sigo creyendo que cada palabra que escribo te acerca un poco más a mí.</p>
 
-      <p>Tengo tanto que contarte…
-         tanto que enseñarte todavía…
-         tanto que quiero vivir contigo.</p>
+        <p>Quiero que cuando leas esto, algún día, veas el orgullo enorme que siento de ser tu padre.</p>
 
-      <p>Aun con la distancia,
-         aun sin tenerte cerca,
-         sigo creyendo que cada palabra que escribo
-         te acerca un poco más a mí.</p>
+        <p>Y que entiendas que merecíamos más. Que la vida nos debía más. Que hubo amor, del verdadero, aunque el tiempo y las circunstancias nos hayan puesto lejos.</p>
+      </article>
 
-      <br>
-
-      <p>Quiero que cuando leas esto, algún día,
-         veas el orgullo enorme que siento de ser tu padre.</p>
-
-      <p>Y que entiendas que merecíamos más.
-         Que la vida nos debía más.
-         Que hubo amor, del verdadero,
-         aunque el tiempo y las circunstancias nos hayan puesto lejos.</p>
-    </article>
-
-</section>
-    </article>
       <a href="cap1.html" class="btn">Leer nuestra historia</a>
-    
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 - Todos los derechos reservados</p>
+    <p>&copy; 2025 - Mi Camino y el de Mi Hija | Todos los derechos reservados</p>
   </footer>
-  <script>
-  function toggleMenu() {
-    const menu = document.getElementById("menu-list");
-    menu.classList.toggle("visible");
-  }
-</script>
 
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu-list");
+      menu.classList.toggle("visible");
+    }
+  </script>
 </body>
 </html>
