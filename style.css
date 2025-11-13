@@ -398,3 +398,10 @@ figcaption {
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   filter: brightness(0.96) contrast(1.05);
 }
+
+.simbolica {
+  max-width: 620px;
+  filter: brightness(0.95) contrast(1.1) saturate(1.05);
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
