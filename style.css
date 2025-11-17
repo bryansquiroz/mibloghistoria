@@ -405,3 +405,31 @@ figcaption {
   border-radius: 14px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
+
+.titulo-huellas {
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.2rem;
+  color: #b8a89a; /* tono más apagado y cálido */
+  position: relative;
+}
+
+.titulo-huellas::before {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 2px;
+  background-color: rgba(184, 168, 154, 0.25); /* línea muy suave */
+  margin: 0 auto 0.5rem;
+  border-radius: 2px;
+}
+
+.titulo-huellas::after {
+  content: "🐾";
+  display: block;
+  font-size: 1.2rem;
+  margin: 0.4rem auto 0;
+  color: #a29286; /* huella más oscura y discreta */
+  opacity: 0.65;
+}
